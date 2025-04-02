@@ -1,0 +1,13 @@
+<div *ngIf="isMapLoaded; else loading">
+  <google-map
+    #mapContainer
+    id="map"
+    class="map"
+    [center]="center"
+    [zoom]="zoom"
+  ></google-map>
+</div>
+
+<ng-template #loading>
+  <p>Loading Google Maps...</p>
+</ng-template>
