@@ -1,0 +1,26 @@
+<div *ngIf="placeDetails" class="place-details m-3">
+  <h2>{{ placeDetails.name }}</h2>
+  <p>
+    <strong>Category:</strong> {{ placeDetails.categories?.[0]?.name || 'N/A' }}
+  </p>
+  <p>
+    <strong>Address:</strong>
+    {{ placeDetails.location?.formatted_address || "N/A" }}
+  </p>
+  <p><strong>Phone:</strong> {{ placeDetails.tel || "Not available" }}</p>
+
+  <div *ngIf="placeDetails.photos?.length > 0">
+    <img
+      [src]="
+        placeDetails.photos[0].prefix +
+        'original' +
+        placeDetails.photos[0].suffix
+      "
+      [alt]="placeDetails.name"
+    />
+  </div>
+  <button class="btn btn-primary btn-sm" routerLink="/">Back to Home Page</button>
+</div>
+<div *ngIf="!placeDetails" class="loading-message">
+  <p>Loading place details...</p>
+</div>

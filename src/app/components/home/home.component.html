@@ -1,0 +1,13 @@
+<div class="welcome-container">
+  <h1>Welcome to Map Explorer</h1>
+  <p>Select how you want to explore:</p>
+  <div class="button-group">
+    <button (click)="navigateTo('google-map')">
+      Explore using Google Maps API
+    </button>
+    <button (click)="navigateTo('leaflet-map')">
+      Explore using Leaflet.js
+    </button>
+  </div>
+</div>
+<router-outlet></router-outlet>

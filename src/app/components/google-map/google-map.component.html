@@ -1,0 +1,80 @@
+<div class="category-filter container m-3">
+  <div class="row align-items-end">
+    <!-- Back Button -->
+    <div class="col-md-1 text-end mb-2">
+      <app-back-button></app-back-button>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="col-md-4 mb-2">
+      <label for="category">Filter by Category:</label>
+      <select
+        id="category"
+        class="form-control"
+        [(ngModel)]="selectedCategoryId"
+        (change)="filterMarkers()"
+      >
+        <option [ngValue]="null">All Categories</option>
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Search Filter -->
+    <div class="col-md-4 mb-2">
+      <label for="search">Place Name:</label>
+      <input
+        id="search"
+        type="text"
+        class="form-control"
+        [(ngModel)]="searchQuery"
+        (input)="filterMarkers()"
+        placeholder="Search by name..."
+      />
+    </div>
+
+    <!-- Radius Filter -->
+    <div class="col-md-3 mb-2">
+      <label for="radius">Distance (meters):</label>
+      <input
+        id="radius"
+        type="number"
+        class="form-control"
+        [(ngModel)]="radius"
+        (input)="onRadiusChange()"
+        placeholder="Radius"
+        min="100"
+        max="50000"
+      />
+    </div>
+  </div>
+  <div class="m-2">
+    <div class="route-calculation">
+      <label for="start">Start Location:</label>
+      <select id="start" (change)="onStartChange($event)">
+        <option *ngFor="let marker of markers" [value]="marker.getTitle()">
+          {{ marker.getTitle() }}
+        </option>
+      </select>
+
+      <label class="m-2" for="destination">Destination:</label>
+      <select
+        class="m-2"
+        id="destination"
+        (change)="onDestinationChange($event)"
+      >
+        <option *ngFor="let marker of markers" [value]="marker.getTitle()">
+          {{ marker.getTitle() }}
+        </option>
+      </select>
+
+      <button class="btn btn-primary" (click)="onCalculateRoute()">
+        Calculate Route
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Google Map -->
+<div #mapContainer id="map" class="mx-3" style="height: 600px"></div>

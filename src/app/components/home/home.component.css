@@ -1,0 +1,81 @@
+.welcome-container {
+  text-align: center;
+  margin-top: 100px;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #007bff, #6a11cb, #2575fc, #00c6ff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.button-group button:hover {
+  transform: translateY(-2px);
+  background: #f0f0f0;
+  color: #0056b3;
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+  .welcome-container {
+    margin-top: 60px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .button-group button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,14 @@
+button:hover {
+  background-color: #181214;
+}
+
+.back-button {
+  background-image: url("/assets/back.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 45px;
+  height: 45px;
+  border: none;
+  padding: 0;
+}

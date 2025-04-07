@@ -1,59 +1,94 @@
-# MapApp
+# 🌍 Map Explorer – Angular Map Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+**Map Explorer** is a modern, responsive web application built using Angular that allows users to explore places of interest using **Google Maps API** and **Leaflet.js**. It integrates with external APIs like **Foursquare** for place data and **Google Directions API** for route visualization.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
-```
+- 🗺️ Switch between Google Maps and Leaflet.js
+- 📍 Fetch nearby places dynamically using the **Foursquare Places API**
+- 🔎 Filter places by different categories:
+  - Category (e.g., Hotels, Restaurants, Attractions)
+  - Name (search)
+  - Radius distance (area covered)
+- 📌 Interactive Markers with InfoWindows (name, category, photo(where available), and link)
+- 🛣️ Route Calculation using Google Directions API (Start → Destination)
+- 📷 Place details with photo preview and extra info
+- ⚙️ Debounced API calls on map drag/zoom
+- 🎨 Beautiful UI with Bootstrap and animated background
+- 📱 Fully responsive layout
+- 🔻 Floating category & filter panel
+- 🔁 Custom back button for navigation
+- 🔚 Footer with external resource links (LinkedIn, GitHub, NASA API)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Prerequisites
 
-```bash
-ng generate component component-name
-```
+- Node.js (v16+ recommended)
+- Angular CLI (`npm install -g @angular/cli`)
+- Google Maps API key with **Maps JavaScript**, **Places**, and **Directions** APIs enabled
+- Foursquare Developer Account (for Places API key)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+### 🔧 Installation
 
-## Building
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/akankshakori02/ngx-maps-explorer.git
+   cd ngx-maps-explorer```
 
-To build the project run:
+2. **Install Dependencies**
+   ```npm install```
 
-```bash
-ng build
-```
+3. **Set up Environment- src/environments/environment.ts**
+    ```export const environment = {
+    production: false,
+    apiKey: 'YOUR_GOOGLE_MAPS_API_KEY',
+    foursquareApiKey: 'YOUR_FOURSQUARE_API_KEY'
+    };```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+4. **Run Application**
+    ```ng serve```
+    ## Building
+    To build the project run:
+    ```ng build```
 
-## Running unit tests
+5. **Open your browser and visit:**
+    http://localhost:4200
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
+### Project Structure
+src/
+│
+├── app/
+│   ├── components/
+│   │   ├── back-button/
+│   │   ├── details/
+│   │   ├── footer/
+│   │   ├── google-map/
+│   │   ├── home/
+│   │   └── leaflet-map/
+│   ├── services/
+│   │   ├── google-map-loader.service.ts
+│   │   └── foursquare.service.ts
+│   ├── app-routing.module.ts
+│   └── app.component.ts
+│
+├── environments/
+│   └── environment.ts
+|── index.html
 
-## Running end-to-end tests
+### Future Enhancements
+Store favorite places in local storage
+Dark/light theme toggle
+Cluster markers for performance
+Implement NgRx State Management
+Integrate other Google API or open API features
+Write Unit test
+Optimise Application using CanLoad, LazyLoad etc
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
