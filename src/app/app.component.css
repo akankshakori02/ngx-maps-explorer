@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 100px); 
+}
+
+app-footer {
+  background-color: #0d1117;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
